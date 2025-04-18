@@ -63,6 +63,8 @@ const stringifyQueryParams = (params: Record<string, string>) =>
   new URLSearchParams(params).toString();
 
 const sendRequest = async <T>(url: string, init?: RequestInit) => {
+  console.log('--- sendRequest ---');
+  console.log('url:', url, 'init:', init);
   const res = await fetch(url, init);
   if (!res.ok) {
     throw new Error(await res.text());
